@@ -1,14 +1,18 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { connectDB } from "../../lib/db";
 import { Order } from "../../models/order";
 
 export const dynamic = "force-dynamic";
 
-export async function GET(req: NextRequest, context: any) {
+// Note: GET signature is fixed with proper typing
+export async function GET(
+  _req: Request,
+  { params }: { params: { id: string } } // ✅ correct typing
+) {
   try {
     await connectDB();
 
-    const id = context.params.id;
+    const { id } = params; // no await needed
 
     const order = await Order.findById(id);
 
@@ -19,9 +23,9 @@ export async function GET(req: NextRequest, context: any) {
       );
     }
 
-    return NextResponse.json(order);
+    return NextResponse.json(order, { status: 200 });
   } catch (error) {
-    console.error(error);
+    console.error("GET /api/orders/[id] error:", error);
     return NextResponse.json(
       { message: "Failed to fetch order" },
       { status: 500 }
