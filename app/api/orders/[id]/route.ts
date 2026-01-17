@@ -4,11 +4,13 @@ import { Order } from "@/app/api/models/order";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: any } }
+  context: { params: { id: string } }
 ) {
   try {
     await connectDB();
-const {id} =  await params.id
+
+    const { id } = context.params;
+
     const order = await Order.findById(id);
 
     if (!order) {
@@ -20,7 +22,7 @@ const {id} =  await params.id
 
     return NextResponse.json(order, { status: 200 });
   } catch (error) {
-    console.error("GET /api/orders/[id] error:", error);
+    console.error(error);
     return NextResponse.json(
       { message: "Failed to fetch order" },
       { status: 500 }
