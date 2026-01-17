@@ -5,14 +5,11 @@ import { Order } from "../../models/order";
 
 export const dynamic = "force-dynamic"; 
 
-export async function GET(
-  req: NextRequest,
-  context: { params: { id: string } }
-) {
+export async function GET({params}: {params: Promise<{ id: string }>}){
   try {
     await connectDB();
 
-    const { id } = context.params; 
+    const { id } = await params; 
 
     const order = await Order.findById(id);
 
