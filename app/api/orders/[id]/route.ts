@@ -1,19 +1,17 @@
-// @ts-nocheck
-
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { connectDB } from "../../lib/db";
 import { Order } from "../../models/order";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(
-  request: NextRequest,
-  context: any
+  _req: Request,
+  { params }: { params: { id: string } }
 ) {
   try {
     await connectDB();
 
-    const { id } = await context.params;
-
-    const order = await Order.findById(id);
+    const order = await Order.findById(params.id);
 
     if (!order) {
       return NextResponse.json(
