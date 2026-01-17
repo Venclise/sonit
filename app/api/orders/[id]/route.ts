@@ -1,17 +1,16 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "../../lib/db";
 import { Order } from "../../models/order";
 
 export const dynamic = "force-dynamic";
 
-export async function GET(
-  _req: Request,
-  { params }: { params: { id: string } }
-) {
+export async function GET(req: NextRequest, context: any) {
   try {
     await connectDB();
 
-    const order = await Order.findById(params.id);
+    const id = context.params.id; // ❌ no await
+
+    const order = await Order.findById(id);
 
     if (!order) {
       return NextResponse.json(
