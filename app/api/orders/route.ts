@@ -1,6 +1,8 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { connectDB } from "../lib/db";
 import { Order } from "../models/order";
+
+export const dynamic = "force-dynamic"; // ensures no build-time execution
 
 // POST new order
 export async function POST(req: Request) {
@@ -32,10 +34,10 @@ export async function POST(req: Request) {
     const order = await Order.create({
       customer: {
         name: customer.name,
+        lastName: customer.lastName || "",
         phone: customer.phone,
         address: customer.address,
-        lastName: customer.lastName,
-        otherInfo: customer.otherInfo,
+        otherInfo: customer.otherInfo || "",
       },
       items: mappedItems,
       total,
@@ -55,13 +57,13 @@ export async function POST(req: Request) {
 }
 
 // GET all orders
-export async function GET(req: Request) {
+export async function GET() {
   try {
     await connectDB();
 
     const orders = await Order.find().sort({
-      status: 1,       // pending first
-      createdAt: -1,   // newest first
+      status: 1, // pending first
+      createdAt: -1, // newest first
     });
 
     return NextResponse.json(orders, { status: 200 });
@@ -74,7 +76,7 @@ export async function GET(req: Request) {
   }
 }
 
-
+// PATCH update order status to delivered
 export async function PATCH(req: Request) {
   try {
     await connectDB();

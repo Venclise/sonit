@@ -3,6 +3,7 @@ import { connectDB } from "../lib/db"
 import { Product } from "../models/product"
 import cloudinary from "../lib/cloudinary"
 
+export const dynamic = "force-dynamic"; 
 export async function GET(req: Request) {
   await connectDB()
 
