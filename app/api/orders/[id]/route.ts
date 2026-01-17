@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { NextResponse } from "next/server";
-import { connectDB } from "../../../lib/db";
-import { Order } from "../../../models/order";
+import { connectDB } from "../../lib/db";
+import { Order } from "../../models/order";
 
 export const dynamic = "force-dynamic";
 
@@ -9,7 +9,7 @@ export async function GET(_req: any, context: any) {
   try {
     await connectDB();
 
-    // Turbopack sometimes wraps params in a Promise
+    
     const params = await context.params; 
     const id = params?.id;
 
