@@ -4,12 +4,12 @@ import { Order } from "@/app/api/models/order";
 
 export async function GET(
   request: NextRequest,
-  context: { params: { id: string } }
+  context: any
 ) {
   try {
     await connectDB();
 
-    const { id } = context.params;
+    const { id } = await context.params;
 
     const order = await Order.findById(id);
 
@@ -20,7 +20,7 @@ export async function GET(
       );
     }
 
-    return NextResponse.json(order, { status: 200 });
+    return NextResponse.json(order);
   } catch (error) {
     console.error(error);
     return NextResponse.json(
