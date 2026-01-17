@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { NextResponse } from "next/server";
-import { connectDB } from "../../lib/db";
-import { Order } from "../../models/order";
+import { connectDB } from "../../../lib/db";
+import { Order } from "../../../models/order";
 
 export const dynamic = "force-dynamic";
 
@@ -9,9 +9,16 @@ export async function GET(_req: any, context: any) {
   try {
     await connectDB();
 
-   
-    const params = await context.params;
-    const id = params.id;
+    // Turbopack sometimes wraps params in a Promise
+    const params = await context.params; 
+    const id = params?.id;
+
+    if (!id) {
+      return NextResponse.json(
+        { message: "Order ID is required" },
+        { status: 400 }
+      );
+    }
 
     const order = await Order.findById(id);
 
