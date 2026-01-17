@@ -1,40 +1,28 @@
-// @ts-nocheck
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "../../lib/db";
 import { Order } from "../../models/order";
 
-export const dynamic = "force-dynamic";
 
-export async function GET(_req: any, context: any) {
+export const dynamic = "force-dynamic"; 
+
+export async function GET(
+  req: NextRequest,
+  context: { params: { id: string } }
+) {
   try {
     await connectDB();
 
-    
-    const params = await context.params; 
-    const id = params?.id;
-
-    if (!id) {
-      return NextResponse.json(
-        { message: "Order ID is required" },
-        { status: 400 }
-      );
-    }
+    const { id } = context.params; 
 
     const order = await Order.findById(id);
 
     if (!order) {
-      return NextResponse.json(
-        { message: "Order not found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ message: "Order not found" }, { status: 404 });
     }
 
-    return NextResponse.json(order, { status: 200 });
+    return NextResponse.json(order);
   } catch (error) {
     console.error("GET /api/orders/[id] error:", error);
-    return NextResponse.json(
-      { message: "Failed to fetch order" },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: "Failed to fetch order" }, { status: 500 });
   }
 }
