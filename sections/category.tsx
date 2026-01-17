@@ -24,7 +24,7 @@ export default function category() {
  const swiperRef = useRef<SwiperType | null >(null);
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <div className='flex flex-col w-full h-max relative'>
+    <div className='flex flex-col w-full h-max relative py-5'>
       
               <h2 className='font-semibold text-3xl md:text-4xl p-5'><span className='text-xl md:text-2xl font-normal'> Explore
                     </span> <br /> Categories</h2>
@@ -54,7 +54,7 @@ export default function category() {
                  <div className='w-[15rem] h-[20rem] md:w-[15rem] md:h-[25rem] relative hover:opacity-50 transition-all '>
                      <Image src={img} alt={title} fill className='w-full h-full object-cover'/>
                       </div>
-                      <span className='text-xl   text-center  w-full  text-black '>
+                      <span className='text-lg   text-black '>
                          {title}
                       </span>
 </Link>

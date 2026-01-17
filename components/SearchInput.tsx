@@ -48,13 +48,13 @@ const router = useRouter()
            <XIcon />
          </Button>
     <div className="relative w-full flex flex-col gap-4">
-         <h2 className="text-2xl ">
-          Search for products
+         <h2 className="text-2xl font-semibold ">
+          Search 
          </h2>
       <Input
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        placeholder="Search here"
+        placeholder="Search products here"
         className="w-full border p-2"
         />
 

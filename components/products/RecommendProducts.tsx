@@ -29,7 +29,7 @@ export default  function RecommendProducts({data}:{data:[]}) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className='h-screen'>
+    <div className='h-max'>
       {
 data.length &&
         <h2 className='font-semibold text-xl px-5 mt-10 '>You might like:</h2>

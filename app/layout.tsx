@@ -1,18 +1,13 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import {Bangers,Inter } from "next/font/google";
+import {Inter } from "next/font/google";
 
 import Header from "@/components/Header";
 import { Toaster } from "sonner";
+import Footer from "@/components/Footer";
 
 
 
-const bangers = Bangers({
-  subsets: ["latin"],
-  weight: [ "400"],
-  variable: "--font-bangers",
-
-});
 
 
 
@@ -36,13 +31,15 @@ export default function RootLayout({
   return (
     <html lang="en">
    
-      <body className={`${inter.className} ${bangers.variable} antialiased `} >
+      <body className={`${inter.className}  antialiased `} >
       
+
 
      <Header /> 
         {children}
-       <Toaster />
-   
+          <Toaster />
+        <Footer />    
+
       </body>
     </html>
   );

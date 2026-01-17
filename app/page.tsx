@@ -1,12 +1,14 @@
+import Hero from '@/sections/Hero'
 import Category from '@/sections/category'
-import HeroSlider from '@/sections/HeroSlider'
-import React from 'react'
+
 
 export default function page() {
   return (
-    <div className='w-full h-screen py-10 px-5 mt-12'>
-      <HeroSlider />
+    <div className='w-full h-max  '>
+      <Hero />
+     <div className='mt-12 p-2 lg:p-5'>
       <Category />
+     </div>
     </div>
   )
 }

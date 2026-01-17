@@ -63,7 +63,6 @@ export default function Sidebar() {
        {existing?.items?.map((item) => (
           <Link href="#" key={item} className="text-md p-2  tranistion-all w-full text-neutral-700 font-semibold hover:text-black uppercase " >
             <span>
-                
               {item}
             </span>
             </Link>
