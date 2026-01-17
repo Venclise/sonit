@@ -11,9 +11,9 @@ export async function GET(
   try {
     await connectDB();
 
-    const { id } = await context.params;
+    const { id } =  context.params;
 
-    const order = await Order.findById(id);
+    const order =  Order.findById(id);
 
     if (!order) {
       return NextResponse.json(
