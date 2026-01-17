@@ -1,25 +1,17 @@
-import { NextResponse } from "next/server";
-import mongoose from "mongoose";
-import { connectDB } from "@/app/api/lib/db";
-import { Order } from "@/app/api/models/order";
-
-export const dynamic = "force-dynamic"; 
+import { NextRequest, NextResponse } from "next/server";
+import { connectDB } from "../../lib/db";
+import { Order } from "../../models/order";
 
 export async function GET(
-  _req: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  context: any 
 ) {
   try {
     await connectDB();
 
-    if (!mongoose.Types.ObjectId.isValid(params.id)) {
-      return NextResponse.json(
-        { message: "Invalid order ID" },
-        { status: 400 }
-      );
-    }
+    const { id } = await context.params;
 
-    const order = await Order.findById(params.id).lean();
+    const order = await Order.findById(id);
 
     if (!order) {
       return NextResponse.json(
@@ -30,7 +22,7 @@ export async function GET(
 
     return NextResponse.json(order);
   } catch (error) {
-    console.error("Order fetch error:", error);
+    console.error(error);
     return NextResponse.json(
       { message: "Failed to fetch order" },
       { status: 500 }
