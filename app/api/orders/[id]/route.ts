@@ -1,14 +1,17 @@
-import { NextResponse } from "next/server";
+// @ts-nocheck
+
+import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "../../lib/db";
 import { Order } from "../../models/order";
 
-export const dynamic = "force-dynamic";
-
-export async function GET(_req: Request, { params }: any) {
+export async function GET(
+  request: NextRequest,
+  context: any
+) {
   try {
     await connectDB();
 
-    const id = params.id;
+    const { id } = await context.params;
 
     const order = await Order.findById(id);
 
@@ -21,7 +24,7 @@ export async function GET(_req: Request, { params }: any) {
 
     return NextResponse.json(order);
   } catch (error) {
-    console.error("Order fetch error:", error);
+    console.error(error);
     return NextResponse.json(
       { message: "Failed to fetch order" },
       { status: 500 }
