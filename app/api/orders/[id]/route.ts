@@ -1,21 +1,18 @@
 // @ts-nocheck
-
 import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "../../lib/db";
 import { Order } from "../../models/order";
 
-
-export const dynamic = "force-dynamic"; 
+export const dynamic = "force-dynamic";
 
 export async function GET(
   request: NextRequest,
-  context: { params: Promise<{ id: string }> } // Type the context as having a Promise
+  context: { params: { id: string } }  // ✅ no Promise
 ) {
   try {
     await connectDB();
-    const { id } = await context.params; // Await the params
 
-
+    const { id } = context.params; // ✅ directly
 
     const order = await Order.findById(id);
 
