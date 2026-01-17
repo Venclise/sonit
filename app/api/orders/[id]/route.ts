@@ -1,17 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
-import { connectDB } from "../../lib/db";
-import { Order } from "../../models/order";
-import { AnyARecord } from "dns";
+import { connectDB } from "@/app/api/lib/db";
+import { Order } from "@/app/api/models/order";
 
 export async function GET(
   request: NextRequest,
-  context: any 
+  { params }: { params: { id: any } }
 ) {
   try {
     await connectDB();
-
-    const { id } = await context.params;
-
+const {id} =  await params.id
     const order = await Order.findById(id);
 
     if (!order) {
@@ -21,9 +18,9 @@ export async function GET(
       );
     }
 
-    return NextResponse.json(order);
+    return NextResponse.json(order, { status: 200 });
   } catch (error) {
-    console.error(error);
+    console.error("GET /api/orders/[id] error:", error);
     return NextResponse.json(
       { message: "Failed to fetch order" },
       { status: 500 }
