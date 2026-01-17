@@ -3,6 +3,8 @@ import { connectDB } from "../../lib/db";
 import { Product } from "../../models/product";
 
 export const dynamic = "force-dynamic"; 
+
+
 export async function GET(  request: NextRequest,
   context: any ) {
       try {
