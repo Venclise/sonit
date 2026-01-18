@@ -37,14 +37,14 @@ export default function LiveSearch() {
 const router = useRouter()
   return (
     <div>
-          <Button variant="ghost" className='cursor-pointer' onClick={() => setIsOpen(true)}>
+          <Button variant="ghost" size="icon-sm" className= 'cursor-pointer' onClick={() => setIsOpen(true)}>
 
         <Search />
       </Button> 
       {
         open && (
       <div className="absolute top-0 left-0 h-screen w-full bg-white z-100 py-20 p-10 lg:p-20 ">
-         <Button variant="ghost" className="absolute top-5 right-5" onClick={() => setIsOpen(false)}>
+         <Button variant="ghost" size="icon-sm"  className="absolute top-5 right-5" onClick={() => setIsOpen(false)}>
            <XIcon />
          </Button>
     <div className="relative w-full flex flex-col gap-4">

@@ -65,11 +65,11 @@ export default  function SingleProduct({ product }: { product: Product }) {
      {product.image && (
         <div className='w-full md:w-[50%] lg:w-[40%]  flex flex-col gap-1 '>
 
-         <div className="w-full h-[30rem] lg:w-full lg:h-[30rem] relative  ">
+         <div className="w-full h-[25rem] lg:w-full lg:h-[30rem] relative  ">
           <Swiper
      className='w-full h-full  '
       modules={[Navigation,Pagination]}
-      spaceBetween={100}
+      spaceBetween={5}
       slidesPerView={1}
      
        onSwiper={(swiper) =>{ (swiperRef.current = swiper) ;}}

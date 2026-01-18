@@ -57,6 +57,11 @@ const router = useRouter()
       return;
     }
 
+    if(productInfo.cutprice < productInfo.price || productInfo.cutprice === productInfo.price ) {
+        toast.error("Cut price can't be less or equal to price")
+        return;
+    }
+
     setIsLoading(true);
 
     const formData = new FormData();

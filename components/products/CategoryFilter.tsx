@@ -21,6 +21,7 @@ export default function CategoryFilter() {
   const swiperRef = useRef<SwiperType | null>(null)
 
   const handleChange = (value: string) => {
+    
     if (value === "all") {
       router.push("/products")
     } else {
@@ -37,7 +38,6 @@ export default function CategoryFilter() {
         modules={[ A11y]}  
         spaceBetween={12}
         slidesPerView="auto"
-        
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         className="w-full"
       >

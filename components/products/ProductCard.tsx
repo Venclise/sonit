@@ -23,7 +23,7 @@ export default function ProductCard({ data }: { data: ProductData }) {
   return (
     
     <div 
-          className="h-[20rem] md:h-[25rem]  group block relative"
+          className="h-[18rem] md:h-[25rem]  group block relative"
     >
 
     <Link

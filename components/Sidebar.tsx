@@ -27,11 +27,10 @@ export default function Sidebar() {
 
     <div>
         <Sheet>
-  <SheetTrigger>
-       <div className='w-[1.5rem] h-[2rem] flex items-center flex-col gap-2'> 
-            <span className='w-full h-[3px] bg-black pointer-events-none'></span>
-            <span className='w-full h-[3px] bg-black pointer-events-none'></span>
-
+  <SheetTrigger className="hover:bg-gray-50 px-1 rounded-md cursor-pointer">  
+       <div className='w-[1.5rem] h-[2rem] flex items-center justify-center flex-col gap-1.5'> 
+            <span className='w-full h-[2px] bg-black pointer-events-none'></span>
+            <span className='w-full h-[2px] bg-black pointer-events-none'></span>
        </div>
   </SheetTrigger>
 

@@ -35,14 +35,17 @@ export default function Cart() {
   return (
     <div>
       <Sheet >
-        <SheetTrigger className="relative bg-transparent hover:bg-gray-100 h-10 w-10 flex items-center justify-center rounded-lg text-sm cursor-pointer  ">
+        <SheetTrigger  className="relative bg-transparent hover:bg-gray-100 h-10 w-10 flex items-center justify-center rounded-lg text-sm cursor-pointer  ">
           { cart.length ? (
                   <div className="absolute top-0 right-0 text-white bg-black w-5 h-5 font-mono rounded-full  ">
                      {cart.length } 
                  </div>
           ) : ("")
           }
-          <ShoppingCart className="w-5 h-5" strokeWidth={1.5} />
+          
+
+          <ShoppingCart  className="w-4 h-4 lg:w-5 lg:h-5 " strokeWidth={1.5} />
+          
         </SheetTrigger>
         <SheetContent className="z-[100] overflow-y-scroll overflow-x-hidden ">
           <SheetHeader>
