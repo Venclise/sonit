@@ -34,13 +34,13 @@ categories.map(({id,title}) => (
           <div className='flex flex-col gap-2'>
               <span className='font-semibold text-gray-800'>Support Center</span>
             
-<a href="tel:+92123123123" className='text-sm underline'>
+<a href="tel:+92123123123" className=' text-xs lg:text-sm underline'>
 Call us 
 </a>
-<Link href="#" className='text-sm underline'>
+<Link href="#" className=' text-xs lg:text-sm underline'>
 Customer Support
 </Link>
-<Link href="#" className='text-sm underline'>
+<Link href="#" className=' text-xs lg:text-sm  underline'>
 Email us
 </Link>
 
@@ -49,24 +49,24 @@ Email us
           <div className='flex flex-col gap-1'>
               <span className='font-semibold text-gray-800'>Ways to connect</span>
 
-            <a href="tel:+92123123123" className='flex items-center gap-4 underline text-sm'>
+            <a href="tel:+92123123123" className='flex items-center gap-4  text-xs lg:text-sm underline'>
             <Phone className='w-3 h-3' />
                 <span>+92123123123</span>
             </a>
             <a href="mailto:"></a>
 
- <a href="mailto:zunnurainzahoor955@gmail.com" className='flex items-center gap-4 text-sm underline'>
+ <a href="mailto:zunnurainzahoor955@gmail.com" className='flex items-center gap-4  text-xs lg:text-sm underline '>
             <Mail className='w-3 h-3' />
                 <span>zunnurain</span>
             </a>
 
-             <a href="#" className='flex items-center gap-4 text-sm underline'>
+             <a href="#" className='flex items-center gap-4  text-xs lg:text-sm underline '>
             <MapPin className='w-3 h-3' />
                 <span>Shop no 1 Street no 1 City </span>
             </a>
           </div>
-          <div className='ml-24 '>
-            <h2 className='text-lg font-semibold mb-4 ml-2'>Subscribe to Sonit's News letter.</h2>
+          <div className='lg:ml-24 '>
+            <h2 className='text-lg font-semibold mb-4 lg:ml-2'>Subscribe to Sonit's News letter.</h2>
              <Input placeholder='Subscirbe to NewsLetter.' className='mb-4'/>
              <input type="checkbox" id='check' />
              <label htmlFor="check" className='text-sm ml-2'>Subscirbe to news Letter</label>

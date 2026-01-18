@@ -1,6 +1,7 @@
 "use client"
 import {
 Sheet,
+  SheetClose,
 SheetContent,
 SheetDescription,
 SheetHeader,
@@ -8,7 +9,7 @@ SheetTitle,
 SheetTrigger,
 } from "@/components/ui/sheet"
 import { DialogTitle } from '@radix-ui/react-dialog'
-import { navItems } from '@/lib/constants'
+import { categories, navItems } from '@/lib/constants'
 import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
 import { useState } from "react"
@@ -23,6 +24,7 @@ export default function Sidebar() {
          
    
   return (
+
     <div>
         <Sheet>
   <SheetTrigger>
@@ -32,6 +34,33 @@ export default function Sidebar() {
 
        </div>
   </SheetTrigger>
+
+<SheetContent>
+    <DialogTitle>
+        
+    </DialogTitle>
+
+     <div className='w-full h-screen p-10 items-center justify-center'>
+        <div className='flex flex-col gap-5 w-max h-max'>
+          
+          {
+            categories.map(({id,title}) => (
+              <Link href={`/products?category=${title}`} key={id} 
+              className='text-lg w-full  uppercase font-semibold text-neutral-700 hover:text-black transition-all'
+              >
+                <SheetClose className="cursor-pointer">
+
+                  {title}
+                </SheetClose>
+                 </Link>
+            ))
+          }
+         
+        </div>
+     </div>
+</SheetContent>
+
+{/*   
   <SheetContent className='bg-white overflow-y-scroll   '>
     <DialogTitle className='border-b p-7 border-gray-200 '>
           
@@ -68,14 +97,14 @@ export default function Sidebar() {
             </Link>
        ))}
   </div>
-  </SheetContent>
-</Sheet>
-                </div>
+  </SheetContent> */}
+{/* </Sheet> */}
+                {/* </div>
             ))
         }
    </div>
-        </div>
-  </SheetContent>
+        </div> */}
+  {/* </SheetContent> */}
 </Sheet>
     </div> 
   )

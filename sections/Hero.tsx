@@ -12,9 +12,9 @@ export default function Hero() {
 <div className='h-screen w-full relative'>
         <Image src="/hero.webp" alt="Image" className='w-full h-full object-cover' fill/>
         <div className='opacity-100 absolute bottom-3 left-3 flex items-center justify-center w-full h-full lg:h-max flex-col gap-4 p-5'>
-              <h1 className='text-8xl text-center'>Your Getaway
+              <h1 className='text-6xl md:text-8xl text-center'>Your Getaway
                 </h1>
-                <span className='text-lg ml-5'>
+                <span className='text-md md:text-lg ml-5'>
                     
 Luxurious sanitaries redefined
                 </span>

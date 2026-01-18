@@ -36,6 +36,9 @@ export default function AddProduct() {
     cutprice: ""
   });
 
+    const baseUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+
 
     
 
@@ -67,7 +70,7 @@ images.forEach((img) => {
 })
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/products`, {
+      const res = await fetch(`${baseUrl}/api/products`, {
         method: "POST",
         body: formData,
       });

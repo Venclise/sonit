@@ -9,7 +9,7 @@ import Cart from './cart/cart'
 
 export default function Header() {
   return (
-    <div className='w-full h-[3rem] z-10  flex items-center justify-between p-10 fixed top-0 left-0 bg-white     '>
+    <div className='w-full h-[3rem] z-10  flex items-center justify-between  px-5 py-10 lg:p-10 fixed top-0 left-0 bg-white'>
          <Link href="/" className='font-semibold text-2xl '> 
          Sonit.
           </Link> 

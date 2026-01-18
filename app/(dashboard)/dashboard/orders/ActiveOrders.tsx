@@ -19,7 +19,10 @@ export default function ActiveOrders() {
         });
         const data = await res.json();
         setOrders(data);
-      console.log(data)
+    
+
+
+
       } catch (err) {
         console.error(err);
       } finally {
@@ -37,7 +40,6 @@ export default function ActiveOrders() {
     (order) => order.status === "pending"
   );
 
-  console.log(pendingOrders)
 
   return (
     <div className="flex items-center gap-4 overflow-x-scroll mt-5">
