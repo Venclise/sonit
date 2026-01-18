@@ -3,8 +3,10 @@ import EditForm from '@/components/dashboard/EditForm'
 
 export default async function page( { params }: {params: { id: string }}) {
     const {id } = await params
+      const baseUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000/'
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/products/${id}`,{cache:'no-store'})
+    const res = await fetch(`${baseUrl}/api/products/${id}`,{cache:'no-store'})
 
     if(!res.ok) {
         return <div className='h-screen w-full flex items-center justify-center'>

@@ -3,9 +3,10 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '.
 
 export default async function  page() {
 
-
+  const baseUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000/'
        
-        const res = await fetch( `${    process.env.NEXT_PUBLIC_SITE_URL }/api/orders`,
+        const res = await fetch( `${baseUrl}/api/orders`,
     { cache: "no-store" }
     )
 

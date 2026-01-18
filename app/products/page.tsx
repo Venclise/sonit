@@ -8,6 +8,7 @@ export default async function Page({
 }: {
   searchParams: { category?: string ,search?:string}
 }) {
+
   const {category,search} = await searchParams
   const query = new URLSearchParams()
 
@@ -16,7 +17,7 @@ export default async function Page({
 
 
   const baseUrl =
-  process.env.NEXT_PUBLIC_SITE_URL 
+  process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000/'
 
 const res = await fetch(
   `${baseUrl}/api/products?${query.toString()}`,

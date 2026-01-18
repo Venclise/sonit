@@ -17,9 +17,11 @@ import Link from "next/link"
 
     export default async function page() {
     
+        const baseUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000/'
 
     const res = await fetch(
-    `${    process.env.NEXT_PUBLIC_SITE_URL }/api/products`,
+    `${baseUrl}/api/products`,
     { cache: "no-store" }
     )
 
