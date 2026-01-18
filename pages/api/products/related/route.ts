@@ -1,5 +1,5 @@
-import { connectDB } from "@/app/api/lib/db"
-import { Product } from "@/app/api/models/product"
+import { connectDB } from "@/pages/api/lib/db"
+import { Product } from "@/pages/api/models/product"
 import { NextRequest } from "next/server"
 
 export const dynamic = "force-dynamic"; 

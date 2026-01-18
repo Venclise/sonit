@@ -6,7 +6,7 @@
   import { toast } from "sonner"
   import { useRouter } from "next/navigation"
   import { categories } from "@/lib/constants"
-  import { Product } from "@/app/api/models/product"
+  import { Product } from "@/pages/api/models/product"
   import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
   import { Textarea } from "../ui/textarea"
 

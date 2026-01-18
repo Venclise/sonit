@@ -11,7 +11,7 @@ export default function Footer() {
             <Link href="/" className='font-semibold text-2xl '> 
          Sonit.
           </Link> 
-<div className='flex  flex-wrap items-center justify-center lg:justify-start lg:flex-row gap-8'>
+<div className='flex mt-12  flex-wrap items-center justify-center lg:justify-start lg:flex-row gap-8'>
 
         
 
