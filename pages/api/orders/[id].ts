@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "../../../lib/db";
-import { Order } from "../models/order";
+import { Order } from "../../../models/order";
 
 
 export default async function handler(

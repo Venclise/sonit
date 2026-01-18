@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "../../../lib/db";
 
 import { uploadToCloudinary } from "../../../lib/cloudinary"; 
-import { Product } from "../models/product";
+import { Product } from "../../../models/product";
 
 export default async function handler(
   req: NextApiRequest,
