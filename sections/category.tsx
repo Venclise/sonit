@@ -51,7 +51,7 @@ export default function category() {
 
              <SwiperSlide key={id} className='flex text-center items-center flex-col justify-center gap-8 overflow-hidden  cursor-pointer  transition-all   '>
 <Link href={`/products?category=${title}`}>
-                 <div className='w-[15rem] h-[20rem] md:w-[15rem] md:h-[25rem] relative hover:opacity-50 transition-all '>
+                 <div className='w-[14rem] h-[18rem] md:w-[15rem] md:h-[25rem] relative hover:opacity-50 transition-all '>
                      <Image src={img} alt={title} fill className='w-full h-full object-cover'/>
                       </div>
                       <span className='text-lg   text-black '>
