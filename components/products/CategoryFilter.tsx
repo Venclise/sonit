@@ -16,7 +16,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 export default function CategoryFilter() {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const activeCategory = searchParams.get("category") ?? "all"
+  const activeCategory = searchParams?.get("category") ?? "all"
 
   const swiperRef = useRef<SwiperType | null>(null)
 
