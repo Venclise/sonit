@@ -38,7 +38,7 @@ import Link from "next/link"
 
 
   return (
-    <div className='mt-24 p-5 lg:p-10 w-full h-screen'>
+    <div className='mt-24 p-5 lg:p-10 w-full h-max'>
       <h2 className="text-black font-semibold text-2xl lg:text-4xl"> 
             Dashboard
          </h2>
@@ -78,7 +78,7 @@ import Link from "next/link"
   </DialogContent>
 </Dialog>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-6 gap-y-20 mt-12">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-6 gap-y-20 mt-12 py-10">
 
 
 {data.map((data:any) => {

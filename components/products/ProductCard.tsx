@@ -21,9 +21,15 @@ export default function ProductCard({ data }: { data: ProductData }) {
   const isDashboard = pathname === "/dashboard"
 
   return (
+    
+    <div 
+          className="h-[20rem] md:h-[25rem]  group block relative"
+    >
+
     <Link
       href={`${isDashboard ? "#" : `/products/${data._id}`}`}
-      className="h-[20rem] md:h-[25rem]  group block relative"
+      className="h-full w-full "
+
     >
       <div className="h-[90%] w-full relative overflow-hidden">
       
@@ -57,11 +63,14 @@ export default function ProductCard({ data }: { data: ProductData }) {
       </div>
 
       <div className="flex flex-col items-center gap-4 px-5 mt-4">
+      
+
         {
           isDashboard && (
             <ProductActions id={data._id}/>
           )
         }
+        
         <h2 className="text-xl md:text-2xl  text-center line-clamp-2">{data.title}</h2>
 
 
@@ -80,5 +89,7 @@ export default function ProductCard({ data }: { data: ProductData }) {
         </div>
       </div>
     </Link>
+    </div>
+
   )
 }

@@ -16,6 +16,7 @@
     price: string
     description: string,
     category: string,
+    cutprice:string,
   }
 
   export default function EditForm({ product }: { product: Product }) {
@@ -24,12 +25,15 @@
     const [form, setForm] = useState({
       title: product.title,
       price: product.price,
+      cutprice: product.cutprice,
       description: product.description,
       category: product.category,
     })
 
+  
 
-        const exist =  categories.find(cat => cat.title === form.category )
+
+     
 
         
 
@@ -47,7 +51,6 @@
   
 
 
-      console.log("PATCH ID:", product._id)
 
   const res = await fetch(`/api/products/${product._id}`, {
     method: "PATCH",
@@ -57,6 +60,7 @@
     body: JSON.stringify({
       title: form.title,
       price: Number(form.price),
+       cutprice: Number(form.cutprice),
       description: form.description,
       category: form.category,
     }),
@@ -108,6 +112,22 @@
             placeholder="Price"
             type="number"
             value={form.price}
+            onChange={handleChange}
+            />
+            </div>
+
+            
+            <div className="flex items-start gap-1 flex-col">
+
+          <label htmlFor="cutprice" className="text-sm text-gray-700">
+            Cutted Price
+  </label>
+          <Input
+            name="cutprice"
+            id="cutprice"
+            placeholder="Enter the Cutted Price"
+            type="number"
+            value={form.cutprice}
             onChange={handleChange}
             />
             </div>

@@ -35,7 +35,7 @@ const res = await fetch(
        
 
     return (
-        <div className='w-full p-5 lg:p-10 mt-24 '>
+        <div className='w-full h-max p-5 lg:p-10 mt-24 '>
           <div className='p-5'>
           <CategoryFilter />
           </div>
@@ -55,7 +55,7 @@ category && (
 
 
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-5 gap-y-30 md:gap-y-23 ">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-5 gap-y-30 md:gap-y-23 w-full py-10">
  
 {data.map((data:any) => {
 

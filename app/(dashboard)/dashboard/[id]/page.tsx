@@ -15,8 +15,9 @@ export default async function page( { params }: {params: { id: string }}) {
     }
 
     const product = await res.json()
+    
 return (
- <div className="h-screen w-full items-center justify-center mt-24 p-5 md:p-10">
+ <div className="h-max w-full items-center justify-center mt-24 p-5 md:p-10">
         <h2 className="font-semibold text-2xl text-gray-600">
            Edit 
            <span className="text-black ml-2">

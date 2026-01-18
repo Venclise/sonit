@@ -31,7 +31,7 @@ export default function ProductActions({ id }: { id: string }) {
     
 
   const handleDelete = async () => {
-    // toast.loading("Deleting...")
+   
     const res = await fetch(`/api/products/${id}`, {
       method: "DELETE",
     })
@@ -54,13 +54,16 @@ export default function ProductActions({ id }: { id: string }) {
 
       <DropdownMenuContent>
         
-          <DropdownMenuItem className="cursor-pointer" onClick={() => router.push(`/products/${id}`)
-  }>
+          <DropdownMenuItem className="cursor-pointer" onClick={(e) =>{  router.push(`/products/${id}`);
+          e.stopPropagation()
+  }}>
             <ExternalLink  className="mr-2 h-4 w-4" />
             View
           </DropdownMenuItem>
-        <DropdownMenuItem className="cursor-pointer" onClick={() => router.push(`/dashboard/${id}`)
-}>
+        <DropdownMenuItem className="cursor-pointer" onClick={(e) =>{  router.push(`/dashboard/${id}`);
+          e.stopPropagation()
+  }}>
+
           <SquarePen className="mr-2 h-4 w-4" />
           Edit
         </DropdownMenuItem>
